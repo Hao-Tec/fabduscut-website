@@ -28,8 +28,8 @@ This website features:
 
 ## 📸 Screenshots
 
-![Homepage](screenshots/homepage.png)
-![Mobile View](screenshots/mobile_view.png)
+<img src="screenshots/homepage.png" alt="Homepage Screenshot" style="width: 100%; height: 500px;">
+<img src="screenshots/mobile_view.png" alt="MobileView Screenshot" style="max-width: 800px; width: 100%; height: 700px; border-radius: 10px;">
 
 ---
 

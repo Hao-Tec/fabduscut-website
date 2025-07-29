@@ -10,9 +10,9 @@ A fully responsive, modern website built for **FabdusCut**, a local barbershop b
 
 This website features:
 
-- Clean, mobile-friendly layout
-- Sections for services, testimonials, contact
-- Optimized loading performance
+- Fully responsive, mobile-friendly layout using modern CSS techniques
+- Custom animations and polished branding
+- Fast, lightweight, and hosted via Netlify
 - Custom branding & color palette
 - Smooth user experience across devices
 

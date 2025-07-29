@@ -1,6 +1,6 @@
 # 💈 FabdusCut Barber Website
 
-A fully responsive, modern website built for **FabdusCut**, a local barbershop business.
+A fully responsive, modern website built for **FabdusCut**, a mobile barbing salon business.
 
 > 🔗 **Live Preview**: [fabduscut.netlify.app](https://fabduscut.netlify.app)
 

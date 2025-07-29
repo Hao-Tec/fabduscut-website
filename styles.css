@@ -1,0 +1,635 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #463030; /* Light background */
+    animation: popUp 0.8s ease-out;
+    position: relative;
+    min-height: 100vh;
+    
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle 20px at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0) 40px
+    );
+    pointer-events: none;
+    transition: background 0.1s linear;
+    z-index: 1;
+}
+
+@keyframes popUp {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+header.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('back3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+    padding: 15vh 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    header.hero {
+        padding: 10vh 0;
+        min-height: 50vh;
+    }
+    
+    header h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    nav ul li a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header.hero {
+        padding: 8vh 0;
+        min-height: 40vh;
+    }
+    
+    header h1 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        letter-spacing: 2px;
+    }
+    
+    nav ul {
+        gap: 10px;
+    }
+    
+    nav ul li a {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+header.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(62, 39, 35, 0.6), rgba(93, 64, 55, 0.6));
+    z-index: 1;
+}
+
+header.hero * {
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    animation: fadeInDown 1s ease-out;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.motto {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    animation: fadeInUp 1s ease-out 0.5s;
+    animation-fill-mode: both;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the items */
+    gap: 20px; /* Space between items */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #bba3a3;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transform: translateY(-2px) scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    padding: 20px;
+    background-color: #ccc5ad; /* Cream background for main content */
+}
+
+section {
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 800px;
+    transition: all 0.3s ease;
+}
+
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+section#services:hover::before {
+    animation: rotateServices 2s linear infinite;
+}
+
+section#gallery:hover::before {
+    animation: rotateGallery 2s linear infinite;
+}
+
+section#testimonials {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+section#testimonials::before,
+section#testimonials::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #3e2723, #5d4037, #3e2723);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scaleY(0.8);
+}
+
+section#testimonials::before {
+    left: -2px;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+section#testimonials::after {
+    right: -2px;
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+section#testimonials:hover::before,
+section#testimonials:hover::after {
+    opacity: 1;
+    transform: scaleY(1);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 39px,
+        #3e2723 39px,
+        #3e2723 40px
+    );
+    animation: squareHover 0.5s linear forwards, squareMove 2s linear infinite;
+    z-index: -1;
+}
+
+section#testimonials:hover::after {
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        #3e2723 39px,
+        #3e2723 40px
+    );
+    animation: squareHover 0.5s linear forwards, squareMoveReverse 2s linear infinite;
+}
+
+@keyframes squareHover {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes squareMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40px 40px;
+    }
+}
+
+@keyframes squareMoveReverse {
+    0% {
+        background-position: 40px 40px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.chat-container {
+    background: #e0e0e0;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.chat-bubble {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.chat-bubble.user {
+    background: #dcf8c6;
+    color: #000;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.testimonial-author {
+    text-align: right;
+    margin-top: 10px;
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.chat-bubble.barber {
+    background: #ffffff;
+    color: #000;
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.chat-bubble.user::before {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: #dcf8c6;
+}
+
+.chat-bubble.barber::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right-color: #ffffff;
+}
+
+section#contact:hover::before {
+    animation: rotateContact 2s linear infinite;
+}
+
+section:hover::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 17px;
+    background: linear-gradient(0deg, #3e2723, #3e2723);
+    z-index: -1;
+}
+
+@keyframes rotateServices {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateGallery {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes rotateTestimonials {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotateContact {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(90deg);
+    }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    animation: float 4s ease-in-out infinite;
+    will-change: transform;
+}
+
+.gallery img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.gallery img:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.gallery img:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.gallery img:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.gallery img:hover {
+    transform: scale(1.05) rotate(2deg);
+    animation-play-state: paused;
+}
+
+button {
+    background-color: #3e2723; /* Chocolate color matching footer */
+    color: #fff;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    min-width: 120px; /* Ensure buttons have a minimum width for better touch targets */
+    font-size: 1rem; /* Ensure readable font size */
+}
+
+button:hover {
+    background-color: #5d4037; /* Lighter chocolate color on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:focus {
+    outline: 2px solid #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #3e2723; /* Chocolate color for footer */
+    color: #ffffff;
+}
+
+footer a {
+    color: #ffffff;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    margin: 0 10px;
+    text-decoration: none;
+    text-shadow: 2px 2px 5px #000000; /* More pronounced 3D effect with text shadow */
+    transition: transform 0.3s, background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 10px; /* Rounded corners for the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* 3D box shadow effect */
+}
+
+footer a:hover {
+    transform: scale(1.2) rotateY(10deg) rotateX(10deg);
+    background-color: #ffffff;
+    color: #3e2723;
+    will-change: transform;
+}
+
+footer a:focus {
+    outline: 2px solid #fff;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #3e2723;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #3e2723;
+    outline: none;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3e2723;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #5d4037;
+}
+
+#success-message, #error-message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+#success-message {
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+}
+
+#error-message {
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+}
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding: 5px;
+    background: transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    object-position: center;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
